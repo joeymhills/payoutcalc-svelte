@@ -36,7 +36,7 @@ let payments: Payment[] = []
 
 <h1>Welcome to the PokerNow.club Payout Calculator</h1>
 
-<input type="text" bind:value={link} />
+<input type="text" placeholder="Game link" bind:value={link} />
 <button on:click={getInfo(link)}>Submit</button>
 
 <div>
