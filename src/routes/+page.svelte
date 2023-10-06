@@ -10,9 +10,9 @@ let link: string = ""
 let payments: Payment[] = []
 
   function getInfo(link:string) {
-    let payer
-    let reciever
-    let amount
+    let payer = ""
+    let reciever = ""
+    let amount = 0
     fetch(`https://go-payout-calc-production.up.railway.app/GetInfo`, {
             method: "POST",
             body: link,
