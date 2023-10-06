@@ -1,6 +1,30 @@
+<style>
 
+  h1 {
+    text-align: center;
+  }
+  input {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+  button {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+  p {
+    text-align: center;
+  }
+</style>
 <script lang='ts'>
-
 type Payment = {
     payer: string,
     reciever: string,
