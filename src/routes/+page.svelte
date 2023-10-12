@@ -2,6 +2,15 @@
 /* import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with 0 opacity */
+  }
+  to {
+    opacity: 1; /* End with full opacity */
+  }
+}
+
 body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
@@ -26,8 +35,8 @@ header {
 /* Set a dark background color for the body */
 body {
     display: flex;
+    margin-top: 55px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #333;
@@ -43,14 +52,14 @@ h1 {
 }
 .intro {
     margin: 20px;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     text-align: center;
 }
 
 /* Style the input element with a dark background and light text color */
 input {
-    width: 375px;
+    width: 360px;
     padding: 10px;
     margin: 10px;
     border: 1px solid #555;
@@ -61,7 +70,7 @@ input {
     color: #fff;
 }
 button {
-    width: 375px;
+    width: 330px;
     padding: 10px;
     margin: 10px;
     border: 1px solid #555;
@@ -72,7 +81,7 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the .payments class with dark background and light text color */
+/* Style the .payments class with dark background and light text color with a fade in animation*/
 .payments {
     display: flex;
     flex-direction: column;
@@ -84,7 +93,8 @@ button {
     background-color: #444;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: #fff;
-}
+    opacity: 0; /* Start with 0 opacity */
+    animation: fadeIn 0.2s ease-in forwards;}
 
 /* Style individual <p> tags within the .payments class */
 .payments p {
@@ -138,7 +148,7 @@ let payments: Payment[] = undefined
 </header>
 
 <body>
-    <p class="intro">Enter your Pokernow.club game link below to get started</p>
+    <p class="intro">Enter your Pokernow.club game link below</p>
 
     <input type="text" placeholder="Game link" bind:value={link} />
     <button on:click={getInfo(link)}>Submit</button>
