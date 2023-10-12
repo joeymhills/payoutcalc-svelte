@@ -1,6 +1,7 @@
 <style>
 /* import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
@@ -141,7 +142,6 @@ let payments: Payment[] = undefined
 
     <input type="text" placeholder="Game link" bind:value={link} />
     <button on:click={getInfo(link)}>Submit</button>
-</body>
 
     {#if payments != undefined} 
         <div class="payments">
@@ -150,4 +150,4 @@ let payments: Payment[] = undefined
             {/each}
         </div>
     {/if}
-
+</body>
