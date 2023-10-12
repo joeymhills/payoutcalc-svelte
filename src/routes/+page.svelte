@@ -10,9 +10,11 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 55px;
     width: 100%;
     background-color: #333;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 300;
     font-family: roboto, sans-serif;
     color: #fff;
     position: fixed;
@@ -40,8 +42,9 @@ h1 {
 }
 .intro {
     margin: 20px;
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
+    text-align: center;
 }
 
 /* Style the input element with a dark background and light text color */
@@ -130,7 +133,7 @@ let payments: Payment[] = undefined
 </head>
 
 <header>
-    <h1>Payout Calculator</h1>
+    <h2>Pokernow.club Payout Calculator</h2>
 </header>
 
 <body>
@@ -138,6 +141,7 @@ let payments: Payment[] = undefined
 
     <input type="text" placeholder="Game link" bind:value={link} />
     <button on:click={getInfo(link)}>Submit</button>
+</body>
 
     {#if payments != undefined} 
         <div class="payments">
@@ -146,5 +150,4 @@ let payments: Payment[] = undefined
             {/each}
         </div>
     {/if}
-</body>
 
