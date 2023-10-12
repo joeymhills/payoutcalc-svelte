@@ -80,6 +80,11 @@ button {
     color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+button:hover {
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}
 
 /* Style the .payments class with dark background and light text color with a fade in animation*/
 .payments {
