@@ -38,14 +38,10 @@ body {
     background-color:#333;
     font-family: roboto, sans-serif;
     color: #fff;
+    animation: fadeIn 0.4s ease-in forwards;
 }
 
 /* Style the heading with a lighter text color */
-h1 {
-    color: #fff;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
 .intro {
     margin: 20px;
     font-size: 20px;
@@ -95,7 +91,7 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: #fff;
     opacity: 0; /* Start with 0 opacity */
-    animation: fadeIn 0.2s ease-in forwards;}
+    }
 
 /* Style individual <p> tags within the .payments class */
 .payments p {
