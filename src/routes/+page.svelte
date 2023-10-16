@@ -11,10 +11,6 @@
   }
 }
 
-body, h1, h2, p, ul, li {
-    margin: 0;
-    padding: 0;
-}
 header {
     display: flex;
     flex-direction: column;
@@ -22,7 +18,7 @@ header {
     align-items: center;
     height: 55px;
     width: 100%;
-    background-color: #333;
+    background-color: #222;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
     font-weight: 300;
     font-family: roboto, sans-serif;
@@ -39,7 +35,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: #333;
+    background-color:#333;
     font-family: roboto, sans-serif;
     color: #fff;
 }
@@ -110,6 +106,8 @@ button:hover {
 </style>
 
 <script lang='ts'>
+
+import { fade } from 'svelte/transition';
 type Payment = {
     payer: string,
     reciever: string,
@@ -117,6 +115,7 @@ type Payment = {
 }
 let link: string = ""
 let payments: Payment[] = undefined
+let error: string = undefined
 
   function getInfo(link:string) {
     let payer = ""
@@ -129,18 +128,24 @@ let payments: Payment[] = undefined
             headers: {
                 "Content-Type": "text/plain"
             }})
-      .then(res => { return res.json()})
+      .then(res => {
+      if (!res.ok) {
+        error = " Error reaching server"
+        payments = undefined
+      }
+      return res.json()})
       .then(res => {
         console.log(res)
         payments = []
+        error = undefined
         res.forEach((payment: Payment) => {
           payer = payment.payer
           reciever = payment.reciever
           amount = (payment.amount /100 ).toFixed(2)
           payments.push({ payer, reciever, amount })
           payments = payments
-        }).then(console.log(`payments: ${payments}`))
-      }); 
+        }).catch(error => {console.log("error is: ", error)}) 
+        }); 
   }
 </script>
 
@@ -165,4 +170,11 @@ let payments: Payment[] = undefined
             {/each}
         </div>
     {/if}
+
+    {#if error != undefined} 
+        <div class="payments">
+            {error}
+        </div>
+    {/if}
+
 </body>
